@@ -1,8 +1,9 @@
 $(document).ready(function() {
-
-  $('#start-button').on('click', function() {
-//how much of this do I keep inside this set of brackets?
-
+  var playButton = document.querySelector('#start-button');
+  var timer = Object(timer);
+  var startBtn = document.getElementById('startBtn');
+  
+ // startBtn.style.display= 'none'; 
 var questions = [
     {
       title: "Commonly used data types DO NOT include:",
@@ -17,6 +18,6 @@ var questions = [
 ];
 
 var score = 0;
+})
 
-
-});
+;
