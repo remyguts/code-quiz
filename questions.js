@@ -3,7 +3,15 @@ $(document).ready(function() {
   var timer = Object(timer);
   var startBtn = document.getElementById('startBtn');
   
- // startBtn.style.display= 'none'; 
+  startBtn.addEventListener("click", startQuiz);
+
+document.getElementById("text").style.visibility = "hidden";
+    document.getElementById("start-button").style.visibility = "hidden";
+    document.getElementById("choice0").style.visibility = "visible";
+    document.getElementById("choice1").style.visibility = "visible";
+    document.getElementById("choice2").style.visibility = "visible";
+    document.getElementById("choice3").style.visibility = "visible";
+    
 var questions = [
     {
       title: "Commonly used data types DO NOT include:",
