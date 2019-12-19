@@ -8,20 +8,30 @@ $(document).ready(function() {
   var answerBtnFour = document.getElementById('answer-buttonfour');
   var highscoreBtn = document.getElementById('highscoreBtn');
   
-  startBtn.addEventListener("click", startQuiz);
-
-  function startQuiz() {
-    console.log('Started')
+  function setNextQuestions() {
 
   }
 
-document.getElementById("text").style.visibility = "hidden";
-    document.getElementById("start-button").style.visibility = "hidden";
-    document.getElementById("choice0").style.visibility = "visible";
-    document.getElementById("choice1").style.visibility = "visible";
-    document.getElementById("choice2").style.visibility = "visible";
-    document.getElementById("choice3").style.visibility = "visible";
+  function selectAnswers() {
+
+  }
+  
+  startBtn.addEventListener("click", startQuiz);
+
+  function startQuiz() {
+    //console.log('Started')
     
+    startBtn.classList.add('hide');
+
+  
+
+    //document.getElementById("text").style.visibility = "hidden";
+    document.getElementById("startBtn").style.visibility = "hidden";
+    document.getElementById("answer-buttonone").style.visibility = "visible";
+    document.getElementById("answer-buttontwo").style.visibility = "visible";
+    document.getElementById("answer-buttonthree").style.visibility = "visible";
+    document.getElementById("answer-buttonfour").style.visibility = "visible";
+  }
 var questions = [
     {
       title: "Commonly used data types DO NOT include:",
