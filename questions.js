@@ -1,7 +1,12 @@
 $(document).ready(function() {
-  var playButton = document.querySelector('#start-button');
+  
   var timer = Object(timer);
   var startBtn = document.getElementById('startBtn');
+  var answerBtnOne = document.getElementById('answer-buttonone');
+  var answerBtnTwo = document.getElementById('answer-buttontwo');
+  var answerBtntThree = document.getElementById('answer-buttonthree');
+  var answerBtnFour = document.getElementById('answer-buttonfour');
+  var highscoreBtn = document.getElementById('highscoreBtn');
   
   startBtn.addEventListener("click", startQuiz);
 
