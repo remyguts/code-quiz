@@ -5,6 +5,11 @@ $(document).ready(function() {
   
   startBtn.addEventListener("click", startQuiz);
 
+  function startQuiz() {
+    console.log('Started')
+
+  }
+
 document.getElementById("text").style.visibility = "hidden";
     document.getElementById("start-button").style.visibility = "hidden";
     document.getElementById("choice0").style.visibility = "visible";
