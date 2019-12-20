@@ -1,31 +1,58 @@
 $(document).ready(function() {
   //var timer = Object(timer);
   var startBtn = document.getElementById("startBtn");
-  var answerBtnOne = document.getElementById("answer-buttonone");
-  var answerBtnTwo = document.getElementById("answer-buttontwo");
-  var answerBtntThree = document.getElementById("answer-buttonthree");
-  var answerBtnFour = document.getElementById("answer-buttonfour");
   var highscoreBtn = document.getElementById("highscoreBtn");
   var timerElement = document.getElementById("timer");
   var currentTime = 200;
+  var questionElement = document.getElementById("questions");
+  var answerButtonsEl = document.getElementById("answer-buttons")
   var score = 0;
-
+  startBtn.addEventListener("click", startQuiz);
   //start game is here
   function startQuiz() {
     //console.log('Started')
 
     startBtn.classList.add("hide");
+    
     setInterval(timer, 1000);
 
     // generateQueztion()
-
-    document.getElementById("startBtn").style.visibility = "hidden";
-    document.getElementById("answer-buttonone").style.visibility = "visible";
-    document.getElementById("answer-buttontwo").style.visibility = "visible";
-    document.getElementById("answer-buttonthree").style.visibility = "visible";
-    document.getElementById("answer-buttonfour").style.visibility = "visible";
+    generateQuestions();
   }
   //question area
+  function generateQuestions() {
+    questionElement.textContent = "";
+
+    $("#questions").empty();
+
+    // Whatever your title div
+    // Empty it
+    // Replace it with new title from questions object
+
+    // Loop through choices
+    // Create a button
+    // Give each a class with the answer
+    // Make textContent equal to questions.choices[i]
+    // Append button
+
+    questionElement.textContent = questions[0].title;
+    let currentQuestionChoices = questions[0].choices;
+    for (i in currentQuestionChoices) {
+      var choice = document.createElement('button');
+      choice.textContent = currentQuestionChoices[i];
+      choice.addEventListener('click', function() {
+        // do something here!
+      })
+      answerButtonsEl.appendChild(choice);
+    }
+
+    // for (var i = 0; i < questions.choices.length; ++i) {
+    //   var answerBtn = $("<button>");
+    //   answerBtn.textContent(questions.choices[i]);
+    //   $("#buttons").append(buttonElement);
+    // }
+  }
+
   var questions = [
     {
       title: "Commonly used data types DO NOT include:",
@@ -49,8 +76,4 @@ $(document).ready(function() {
       // Run function Game Over
     }
   }
-
-
-  startBtn.addEventListener("click", startQuiz);
-
 });
