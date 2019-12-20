@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  //var timer = Object(timer);
+  
   var startBtn = document.getElementById("startBtn");
   var highscoreBtn = document.getElementById("highscoreBtn");
   var timerElement = document.getElementById("timer");
@@ -7,6 +7,7 @@ $(document).ready(function() {
   var questionElement = document.getElementById("questions");
   var answerButtonsEl = document.getElementById("answer-buttons")
   var score = 0;
+  var questionIndex = 0;
   startBtn.addEventListener("click", startQuiz);
   //start game is here
   function startQuiz() {
@@ -40,11 +41,38 @@ $(document).ready(function() {
     for (i in currentQuestionChoices) {
       var choice = document.createElement('button');
       choice.textContent = currentQuestionChoices[i];
-      choice.addEventListener('click', function() {
+      choice.addEventListener('click', function(event) {
+
         // do something here!
-      })
+        if (questions[0].answer === event.currentTarget.innerText) 
+      {
+        console.log("right answer");
+        
+        
+
+        
+
+      }
+      else {
+        console.log("wrong answer");
+      }
+      questionIndex++;
+        console.log("what question?",questionIndex);
+      questionElement.textContent = questions[questionIndex].title;
+      answerButtonsEl;
+
+      console.log(answerButtonsEl.children);
+      answerButtonsEl.children[0];
+      console.log(answerButtonsEl.children[0]);
+      answerButtonsEl.children[0].textContent = questions[questionIndex].choices[0];
+      answerButtonsEl.children[1].textContent = questions[questionIndex].choices[1]; 
+      answerButtonsEl.children[2].textContent = questions[questionIndex].choices[2];
+      answerButtonsEl.children[3].textContent = questions[questionIndex].choices[3];
+    })
+
       answerButtonsEl.appendChild(choice);
     }
+
 
     // for (var i = 0; i < questions.choices.length; ++i) {
     //   var answerBtn = $("<button>");
@@ -52,6 +80,8 @@ $(document).ready(function() {
     //   $("#buttons").append(buttonElement);
     // }
   }
+// if answer clicked is the same as the "answer" for that current question, then move to next question and add to score. 
+// once done with question advance to next number in index
 
   var questions = [
     {
