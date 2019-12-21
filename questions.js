@@ -24,9 +24,7 @@ $(document).ready(function() {
   function generateQuestions() {
     questionElement.textContent = "";
 
-    $("#questions").empty();
-
-    // Whatever your title div
+    
     // Empty it
     // Replace it with new title from questions object
 
@@ -106,7 +104,15 @@ currentTime= currentTime - 15
     timerElement.textContent = currentTime;
 
     if (currentTime === 0) {
+      function alerGameOver(){
+        alert('Game Over');
+        localStorage.setItem(currentTime);
+      };
       // Run function Game Over
     }
   }
 });
+
+
+
+
