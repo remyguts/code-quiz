@@ -55,6 +55,9 @@ $(document).ready(function() {
       }
       else {
         console.log("wrong answer");
+        //minus off current time variable
+
+currentTime= currentTime - 15
       }
       questionIndex++;
         console.log("what question?",questionIndex);
