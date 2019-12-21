@@ -7,6 +7,7 @@ $(document).ready(function() {
   var questionElement = document.getElementById("questions");
   var answerButtonsEl = document.getElementById("answer-buttons")
   var score = 0;
+  var highScore = document.getElementById('highscore')
   var questionIndex = 0;
   startBtn.addEventListener("click", startQuiz);
   //start game is here
@@ -41,16 +42,11 @@ $(document).ready(function() {
       choice.textContent = currentQuestionChoices[i];
       choice.addEventListener('click', function(event) {
 
-        // do something here!
+        
         if (questions[0].answer === event.currentTarget.innerText) 
       {
         console.log("right answer");
-        
-        
-
-        
-
-      }
+         }
       else {
         console.log("wrong answer");
         //minus off current time variable
@@ -103,14 +99,24 @@ currentTime= currentTime - 15
     // Update timer element with current time
     timerElement.textContent = currentTime;
 
-    if (currentTime === 0) {
-      function alerGameOver(){
+    if (currentTime <= 0) {
+      
         alert('Game Over');
         localStorage.setItem(currentTime);
-      };
+        clearInterval(timer);
+        prompt('what is your intitals?');
+    
       // Run function Game Over
     }
   }
+
+  
+
+  // prompt whats your initials... stores initials local storage
+// displays initials and time on highscore sheet
+
+console.log(timerElement);
+
 });
 
 
