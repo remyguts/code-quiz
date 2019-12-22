@@ -78,11 +78,39 @@ border-radius: 5px;
 
 }
 
+
+
+
+#highscore {
+    
+    margin-right: 355px;
+    margin-left: 444px;
+    margin-top: 261px;
+    text-align: center;
+    font-weight: bolder;
+
+
+
+
+}
+
 .hide {
     display: none;
 }
 
+#highscore {
+    body {
+        padding: 0;
+        margin: 900px;
+        margin-top: 218px;
+        width: 100vw;
+        height: 95vw;
+        align-items: center;
+        background-color: grey;
 
+
+
+}
 
 
 #questions {
