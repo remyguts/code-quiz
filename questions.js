@@ -7,8 +7,10 @@ $(document).ready(function() {
   var questionElement = document.getElementById("questions");
   var answerButtonsEl = document.getElementById("answer-buttons")
   var score = 0;
+  var initials = "" ;
   var highScore = document.getElementById('highscore')
   var questionIndex = 0;
+  var timerId  ;
   startBtn.addEventListener("click", startQuiz);
   //start game is here
   function startQuiz() {
@@ -16,7 +18,8 @@ $(document).ready(function() {
 
     startBtn.classList.add("hide");
     
-    setInterval(timer, 1000);
+    timerId = setInterval(timer, 1000);
+
 
     // generateQueztion()
     generateQuestions();
@@ -49,6 +52,8 @@ $(document).ready(function() {
          }
       else {
         console.log("wrong answer");
+
+       
         //minus off current time variable
 
 currentTime= currentTime - 15
@@ -92,6 +97,10 @@ currentTime= currentTime - 15
       answer: "parentheses"
     }
   ];
+
+
+
+
   //timer area
   function timer() {
     // Decrement time
@@ -99,23 +108,72 @@ currentTime= currentTime - 15
     // Update timer element with current time
     timerElement.textContent = currentTime;
 
-    if (currentTime <= 0) {
+    if (currentTime <= 0 || questionIndex === questions.length )  {
       
         alert('Game Over');
-        localStorage.setItem(currentTime);
-        clearInterval(timer);
-        prompt('what is your intitals?');
-    
+        localStorage.setItem("highscore", currentTime);
+        clearInterval(timerId);
+        initials += prompt('what is your intitals?');
+        
+    //console.log(initials);
+
+    localStorage.setItem(initials);
+   
       // Run function Game Over
     }
   }
 
   
 
-  // prompt whats your initials... stores initials local storage
+  // ... stores initials local storage
 // displays initials and time on highscore sheet
 
 console.log(timerElement);
+
+
+const form = document.querySelector('form')
+const ul = document.querySelector('ul')
+const button = document.querySelector('button')
+const input = document.getElementById('item')
+
+const liMaker = text => {
+  const li = document.createElement('li')
+  li.textContent = text
+  ul.appendChild(li)
+};
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault()
+
+  liMaker(input.value)
+  input.value = ''
+});
+let itemsArray = []
+
+localStorage.setItem('items', JSON.stringify(itemsArray))
+const data = JSON.parse(localStorage.getItem('items'))
+
+e.preventDefault()
+
+itemsArray.push(input.value)
+localStorage.setItem('items', JSON.stringify(itemsArray))
+
+data.forEach(item => {
+  liMaker(item)
+})
+
+button.addEventListener('click', function() {
+  localStorage.clear()
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild)
+  }
+})
+
+
+
+
+
+
 
 });
 
