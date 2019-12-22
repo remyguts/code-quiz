@@ -126,13 +126,13 @@ currentTime= currentTime - 15
     if (currentTime <= 0 || questionIndex === questions.length )  {
       
         alert('Game Over');
-        localStorage.setItem("highscore", currentTime);
+        localStorage.setItem("highscore",currentTime);
         clearInterval(timerId);
         initials += prompt('what is your intitals?');
         
     //console.log(initials);
 
-    localStorage.setItem("highscore",initials);
+    localStorage.setItem(initials);
    
       // Run function Game Over
     }
