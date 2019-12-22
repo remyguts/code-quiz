@@ -117,7 +117,7 @@ currentTime= currentTime - 15
         
     //console.log(initials);
 
-    localStorage.setItem(initials);
+    localStorage.setItem("highscore",initials);
    
       // Run function Game Over
     }
