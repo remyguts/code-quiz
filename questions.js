@@ -95,7 +95,22 @@ currentTime= currentTime - 15
       title: "The condition in an if / else statement is enclosed within ____.",
       choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
       answer: "parentheses"
-    }
+    },
+    {
+      title: "Which is not a name of one of the instructors?",
+      choices: ["Spencer", "Dane", "Elrey", "Aaragorn"],
+      answer: "Aaragorn"
+    },
+    {
+      title: "A common tool for checking code is_______",
+      choices: ["API", "function", ".append", "console.log"],
+      answer: "alerts"
+    },
+    {
+      title: "which is not a source for coding information?",
+      choices: ["W3 Schools", "Code Academy", "Stack Overflow", "Spotify"],
+      answer: "alerts"
+    },
   ];
 
 
